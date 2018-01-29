@@ -1,0 +1,40 @@
+$bg1: #3949ab;
+
+mat-card{
+    max-width: 700px;
+    margin: 2rem auto;
+    padding: 1rem 2rem;
+    mat-card-title-group{
+        margin: -1rem -2rem 1rem;
+        padding: 1rem;
+        background: $bg1;
+        color: white;
+    }
+    mat-card-title{
+        margin-bottom: 0;
+    }
+    .stepform_area{
+        display: flex;
+        flex-wrap: wrap;
+        mat-form-field{
+            width: 30%;
+            margin: 0 1.5%;
+        }
+        .radiogroup{
+            width: 30%;
+            display: inline-block;
+            display: flex;
+            align-items: center;
+            position: relative;
+            .placeholder{
+                position: absolute;
+                top: 0;
+                font-size: 0.8rem;
+                color: #a0a0a0;
+            }
+            mat-radio-button{
+                margin-right: 1rem;
+            }
+        }
+    }
+}

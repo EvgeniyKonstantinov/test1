@@ -1,0 +1,37 @@
+<mat-card>
+    <mat-card-title-group>
+        <mat-card-title>Форма регистрации</mat-card-title>
+    </mat-card-title-group>
+    
+      <mat-card-content>
+          <mat-horizontal-stepper linear="true">
+              <mat-step label="Шаг 1" [stepControl]="firstregistrationformGroup">
+                <form [formGroup] = "firstregistrationformGroup" class="stepform_area">
+
+                  <mat-form-field *ngFor="let mycontrol of firstmyControlsText">
+                      <input matInput [placeholder]="mycontrol.placeholder" [formControlName]="mycontrol.name" [type]="mycontrol.type">
+                  </mat-form-field>
+                  <mat-radio-group [formControlName]="mycontrolsRadio.name" class="radiogroup">
+                    <span class="placeholder">Ваш пол</span>
+                      <mat-radio-button color="primary" [value]="item" *ngFor="let item of mycontrolsRadio.labels">{{item}}</mat-radio-button>
+                  </mat-radio-group>
+                </form>
+                <button color="primary" [disabled] = "firstregistrationformGroup.invalid"  mat-raised-button matStepperNext>Далее</button>
+              </mat-step>
+              <mat-step label="Шаг 2">
+                  <form [formGroup] = "secondegistrationformGroup"  (submit)="save()">
+                    <div class="stepform_area">
+                      <mat-form-field *ngFor="let mycontrol of secondControlsText">
+                          <input matInput [placeholder]="mycontrol.placeholder" [formControlName]="mycontrol.name" [type]="mycontrol.type">
+                        </mat-form-field>
+                      </div>
+                      <button type="button" color="primary" mat-raised-button matStepperPrevious>Назад</button>
+                      <button color="primary" [disabled] = "secondegistrationformGroup.invalid" mat-raised-button>Регистрация</button>
+                  </form>
+                    
+                    
+              </mat-step>
+            </mat-horizontal-stepper>
+      </mat-card-content>
+</mat-card>
+
